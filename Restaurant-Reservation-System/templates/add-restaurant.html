@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Restaurant Reservation System</title>
+</head>
+<body>
+     <section id="header">
+        <a href="/"><img src="static/images/logo.png" id='logo'alt="Logo"></a>
+        <h3>Restaurant Reservation System</h3>
+     <div id="booking-details" style="display: block;box-shadow: 0px 0px 2px 2px grey;position: absolute;top:55%">
+        <h1>Restaurant Details:-</h1>
+        <form action="/add" method="post">
+            <label>Name </label><br>
+            <input type="text" name="name" placeholder="Enter Restaurant name"><br><br>
+            <label>City</label><br>
+            <select name="city" id="city" style="width:275px;height: 40px;">
+                <option>Select your City</option>
+                {%for i in data:%}
+                <option value={{i}}>{{i}}</option>
+                {%endfor%}
+            </select><br><br>
+            <label>Cuisine</label><br>
+            <input type="text" name="cuisine" placeholder="Enter Cuisine"><br><br>
+            <label>Picture of Restaurant</label><br>
+            <input type="text" name="pic" placeholder="Paste the image link"><br>
+            <p>Upload the image in drive,<br> make it available for anyone with <br> link. Then Paste the link here</p><br>
+            <label>Timings</label><br>
+            <input type="time" name="open" placeholder="Restaurant opens at"><br>
+            <input type="time" name="close" placeholder="Restaurant closes at"><br><br>
+            <button class='button' id='button'>Sumbit</button>
+        </form>
+    </div>
+     <section id="footer" style="top:110%">
+        <hr><br>
+        <h3>We aim to provide a wait-less service.</h3><br><br>
+        <hr>
+         <a href="about-us">About us</a>
+         <a href="contact-us">Contact us</a>
+         <p>All rights received.</p>
+     </section>
+    </div>
+    <script>
+        let details = document.getElementById('booking-details')
+        
+        function Details(){
+            details.style.display='block'
+        }
+        function none(){
+            register.style.display='none'
+            signin.style.display='none'
+            details.style.display='none'
+        }
+    </script>
+</body>
+</html>

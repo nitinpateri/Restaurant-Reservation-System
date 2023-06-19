@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="details" style="padding: 50px;">
+        
+        {%for i in data[0]:%}
+        {%if i["Name"]==data[2] or i["Name"].split(' ')[0]==data[2].split(' ')[0]:%}
+        <a href="../City"><img src="/static/images/x-mark.png"  id="x-mark" style="top:0px;"></a>
+        <h1>{{i["Name"]}}</h1>
+        <img src={{i["Pic"]}} style="width: 300px;">
+        <h3>Branches:</h3>
+        {%for j in i['Location']:%}
+            <p style="text-align: left;display: inline-flex;">{{j}},</p>
+        {%endfor%}
+        <br>
+        <h3>City:{{i["City"]}}<h3>
+        <h3>Timings:{{i["Timings"]}}<h3>
+        <h3>Cuisine:{{i["Cuisine"]}}</h3><br><br>
+        <Button id="button" class="button" onclick="Details()">Resever</Button>
+        {%endif%}
+        {%endfor%}
+    </div>
+    <section id="header">
+        <img src="/static/images/logo.png" id='logo'alt="Logo">
+        <h3>Restaurant Reservation System</h3>
+        <a href="add-restaurant"><button  id="signup">Add your restaurant</button></a>
+        <a href="#restaurant" id="image-text">Make a Reservation</a>
+        <h2 id="text">We aim to provide a wait-less service.</h2>
+        <img id='main'src="static/images/main.png" >
+     </section>
+    <img src={{data[-1]['City'][data[1]]}} style="width: 100%;height:50vh">
+    
+    <section id="restaurant" style="top:65%;">
+        <h1>{{data[1]}}</h1>
+        <div>
+            {%for i in data[0]:%}
+            <div >
+                {%if data[1]==i['City']%}
+                <a href={{'./'+i['Name']}}>
+                    <img src={{i['Pic']}} alt="">
+                    <h2>{{i['Name']}}</h2>
+                    {%for j in i['Location']:%}
+                    <p>{{j+','+i['City']}}</p>
+                    {%endfor%}
+                </a>
+                {%endif%}
+            </div>
+            {%endfor%}
+        </div>
+            
+     </section>
+     
+     <section id="footer" style="top:150%">
+        <hr><br>
+        <h3>We aim to provide a wait-less service.</h3><br>
+        <hr>
+         <a href="about-us">About us</a>
+         <a href="contact-us">Contact us</a>
+         <p>All rights received.</p>
+     </section>
+     <div id="booking-details">
+        <h1>Booking Details:-</h1>
+        <img src="/static/images/x-mark.png" onclick="none()" id="x-mark" style="top:0px;">
+        <form action="/booking-details" method="post">
+            <label>Name</label><br>
+            <input required type="text" name="name" placeholder="Enter your name"><br><br>
+            <label>Email</label><br>
+            <input required type="email" name="mail" placeholder="Enter you email"><br>
+            <label>Restaurant Name</label><br>
+            <input required type="text" name="r_name" value={{data[2]}} placeholder={{data[2]}}><br><br>
+            <label>Branch</label>
+            <select name="branch">
+                {%for i in data[0]:%}
+                    {%if i["Name"].split(' ')[0]==data[2].split(' ')[0]:%}
+                        {%for j in i['Location']:%}
+                            <option value={{j}}>{{j}}</option>
+                        {%endfor%}
+                    {%endif%}
+                {%endfor%}
+            </select>
+            <label>How may people are attending</label><br>
+            <input required  type="number" name="members" placeholder="Total members"><br><br>
+            <label>Date</label><br>
+            <input required type="date" name="date" id="" placeholder="Select the date"><br><br>
+            <label>Time</label><br>
+            <input required type="time" name="time" ><br><br>
+            <button class='button' onclick="Otp()" id='button'>Sumbit</button>
+        </form>
+    </div>
+    <div id="otp">
+        <h1>Verify you Email</h1>
+        <form action="/otp" method="post">
+            <input type="number" name='otp' placeholder="Enter the OTP"><br><br>
+            <button>Verify</button>
+        </form>
+    </div>
+    <script>
+        let details = document.getElementById('booking-details')
+        let booking = document.getElementById("details")
+        let otp = document.getElementById("otp")
+        function Details(){
+            details.style.display='block'
+            booking.style.display='none'
+        }
+        function none(){
+            details.style.display='none'
+            booking.style.display='block'
+        }
+        function Otp(){
+            details.style.display='none'
+            otp.style.display='block'
+        }
+    </script>
+</body>
+</html>

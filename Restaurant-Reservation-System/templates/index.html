@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Restaurant Reservation System</title>
+</head>
+<body>
+     <section id="header">
+        <a href="/"><img src="static/images/logo.png" id='logo'alt="Logo"></a>
+        <h3>Restaurant Reservation System</h3>
+        <a href="add-restaurant"><button  id="signup">Add your restaurant</button></a>
+        <a href="#location" id="image-text">Make a Reservation</a>
+        <h2 id="text">We aim to provide a wait-less service.</h2>
+        <img id='main'src="static/images/main.png" >
+     </section>
+     <section id="location">
+        <h1>We provide our Service at</h1>
+        <div>
+            <div>
+                <a href="/Hyderabad/City">
+                    <img src="static/images/hyd.png"><br><br>
+                    <h2>Hyderabad</h2>
+                </a>
+            </div>
+            <div>
+                <a href="/Visakhapatnam/City">
+                    <img src="static/images/vizag.png"><br><br>
+                    <h2>Vizag</h2>
+                </a>
+            </div>
+            <div>
+                <a href="/Bangalore/City">
+                    <img src="static/images/bangalore.png"><br><br>
+                    <h2>Bangalore</h2>
+                </a>
+            </div>
+            <div>
+                <a href="/Chennai/City">
+                    <img src="static/images/chennai.png"><br><br>
+                    <h2>Chennai</h2>
+                </a>
+            </div>
+        </div>
+
+     </section>
+     <section id="restaurant">
+        <h1>Restaurants</h1>
+        
+        <div>
+            {%for i in data:%}
+            <div >
+                <a href={{i["City"]+'/'+i["Name"]}}>
+                    <img src={{i["Pic"]}} alt="">
+                    <h2>{{i["Name"]}}</h2>
+                    {%for j in i['Location']:%}
+                    <p>{{j+','+i["City"]}}</p>
+                    {%endfor%}
+                </a>
+                
+            </div>
+            {%endfor%}
+        </div>
+            
+     </section>
+     <section id="footer">
+        <hr><br>
+        <h3>We aim to provide a wait-less service.</h3><br>
+        <hr>
+         <a href="about-us">About us</a>
+         <a href="contact-us">Contact us</a>
+         <p>All rights received.</p>
+     </section>
+    <div id="booking-details">
+        <h1>Booking Details:-</h1>
+        <img src="static/images/x-mark.png" onclick="none()" id="x-mark" style="top:0px;">
+        <form action="booking-details" method="post">
+            <label>Name</label><br>
+            <input type="text" name="name" placeholder="Enter your name"><br><br>
+            <label>Email</label><br>
+            <input type="email" name="mail" placeholder="Enter you email"><br>
+            <a href="otp">Send otp</a><br>
+            <input type="number" name='otp' placeholder="Enter the OTP"><br><br>
+            <label>Restaurant Name</label><br>
+            <input type="text" name="r_name" placeholder=""><br><br>
+            <label>How may people are attendin</label><br>
+            <input type="number" name="members" placeholder="Total members"><br><br>
+            <label>Date</label><br>
+            <input type="date" name="date" id="" placeholder="Select the date"><br><br>
+            <label>Time</label><br>
+            <input type="time" name="time" ><br><br>
+            <button class='button' id='button'>Sumbit</button>
+        </form>
+    </div>
+    <script>
+        let details = document.getElementById('booking-details')
+        
+        function Details(){
+            details.style.display='block'
+        }
+        function none(){
+            register.style.display='none'
+            signin.style.display='none'
+            details.style.display='none'
+        }
+    </script>
+</body>
+</html>

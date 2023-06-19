@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{data[1]}}</title>
+    <style>
+        #footer {
+                top:150%;
+        }
+        @media screen and (max-width:1050px)
+        {
+            #footer {
+                top:200%;
+            }
+        }
+        @media screen and (max-width:700px)
+        {
+            #footer {
+                top:250%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section id="header">
+        <a href="/"><img src="../static/images/logo.png" id='logo'alt="Logo"></a>
+        <h3>Restaurant Reservation System</h3>
+        <a href="../add-restaurant"><button  id="signup">Add your restaurant</button></a>
+        <a href="#restaurant" id="image-text">Make a Reservation</a>
+        <h2 id="text">We aim to provide a wait-less service.</h2>
+        <img id='main'src="static/images/main.png" >
+     </section>
+    <img src={{data[0][-1]['City'][data[1]]}} style="width: 100%;height:50vh">
+    
+    <section id="restaurant" style="top:65%;">
+        <h1>{{data[1]}}</h1>
+        <div>
+            {%for i in data[0]:%}
+            <div >
+                {%if data[1]==i['City']%}
+                <a href={{i['Name']}}>
+                    <img src={{i['Pic']}} alt="">
+                    <h2>{{i['Name']}}</h2>
+                    {%for j in i['Location']:%}
+                    <p>{{j+','+i['City']}}</p>
+                    {%endfor%}
+                </a>
+                {%endif%}
+            </div>
+            {%endfor%}
+        </div>
+            
+     </section>
+     <section id="footer" >
+        <hr><br>
+        <h3>We aim to provide a wait-less service.</h3><br>
+        <hr>
+         <a href="about-us">About us</a>
+         <a href="contact-us">Contact us</a>
+         <p>All rights received.</p>
+     </section>
+</body>
+</html>
