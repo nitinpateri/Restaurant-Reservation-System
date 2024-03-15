@@ -8,7 +8,7 @@ By clicking on add your restaurant we can add the restaurant we get the page whe
 timings.
 ![Screenshot 2024-03-15 113108](https://github.com/nitinpateri/Restaurant-Reservation-System/assets/93271540/17adff00-90d4-4ac7-a987-81dd7c838ae1)
 After entering the details our selection is added and then we can reserve.
-![Screenshot 2024-03-15 113226](https://github.com/nitinpateri/Restaurant-Reservation-System/assets/93271540/ebe5fd6c-4eed-4704-ba2b-2ec13ec3f0a4)
+<img width="1097" alt="image" src="https://github.com/nitinpateri/Restaurant-Reservation-System/assets/93271540/2a4d50e3-15ff-4bf8-a399-4baa44377140">
 After clicking the reserver we enter the Booking details of customer like name, email, restaurant name,branch,how many people and time of reservation.
-![Screenshot 2024-03-15 114159](https://github.com/nitinpateri/Restaurant-Reservation-System/assets/93271540/2a092589-493a-401c-bb37-5f439bb779fb)
+<img width="1091" alt="image" src="https://github.com/nitinpateri/Restaurant-Reservation-System/assets/93271540/8b94312e-1e68-4257-8e07-25e3739dbc42">
 After clicking on submit restaurant is reserved.
