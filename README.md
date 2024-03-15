@@ -9,4 +9,6 @@ timings.
 ![Screenshot 2024-03-15 113108](https://github.com/nitinpateri/Restaurant-Reservation-System/assets/93271540/17adff00-90d4-4ac7-a987-81dd7c838ae1)
 After entering the details our selection is added and then we can reserve.
 ![Screenshot 2024-03-15 113226](https://github.com/nitinpateri/Restaurant-Reservation-System/assets/93271540/ebe5fd6c-4eed-4704-ba2b-2ec13ec3f0a4)
-After clicking the reserver we enter the Booking details of customer.
+After clicking the reserver we enter the Booking details of customer like name, email, restaurant name,branch,how many people and time of reservation.
+![Screenshot 2024-03-15 114159](https://github.com/nitinpateri/Restaurant-Reservation-System/assets/93271540/2a092589-493a-401c-bb37-5f439bb779fb)
+After clicking on submit restaurant is reserved.
