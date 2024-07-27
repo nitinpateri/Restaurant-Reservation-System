@@ -9,7 +9,7 @@ app = Flask(__name__)
 #Database connection
 import pymongo
 client = pymongo.MongoClient(
-    "mongodb+srv://Nitin:admin-123@cluster0.lwfqf.mongodb.net/?retryWrites=true&w=majority"
+    "mongodb+srv://<username>:<password>@cluster0.lwfqf.mongodb.net/?retryWrites=true&w=majority"
 )
 
 
